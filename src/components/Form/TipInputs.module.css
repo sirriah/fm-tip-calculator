@@ -1,7 +1,12 @@
-.button{
+.inputTip{
     border: none;
     background-color: #00474B;
     color: white;
     padding: 1rem;
     font-family: 'Space Mono';
+    cursor: pointer;
+}
+
+.inputTips{
+    background-color: transparent;
 }
