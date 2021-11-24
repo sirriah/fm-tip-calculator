@@ -8,14 +8,14 @@ import ResetForm from "./ResetForm";
 const Form = () => {
   const [billPrice, setBillPrice] = useState(0);
   const [numberOfPeople, setNumberOfPeople] = useState(0);
-  const [customTip, setCustomTip] = useState(0);
+  const [customTip, setCustomTip] = useState();
   const [percentageTip, setPercentageTip] = useState(0);
   const [tipAmouts, setTipAmounts] = useState({"tipAmount" : 0, "totalAmount" : 0});
 
   const resetButtonChangeHandler = () => {
     setBillPrice(0);
     setNumberOfPeople(0);
-    setCustomTip(0);
+    setCustomTip('');
     setPercentageTip(0);
     setTipAmounts({"tipAmount" : 0, "totalAmount" : 0});
   }

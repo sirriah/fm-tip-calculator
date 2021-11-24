@@ -1,25 +1,18 @@
-import React from 'react';
+import React from "react";
+import DisplayAmountsField from "./DisplayAmountsField";
 
 const DisplayAmounts = (props) => {
+  return (
+    <div className="calculator__results">
+      <DisplayAmountsField componentName="Tip Amount" per="/ person">
+        {props.amounts.tipAmount}
+      </DisplayAmountsField>
 
-    return(
-        <div className="calculator__results">
-        <div className="tip-amount">
-          <div>
-            <h2>Tip Amount</h2>
-            <p>/ person</p>
-          </div>
-          <div>${props.amounts.tipAmount}</div>
-        </div>
-        <div>
-          <div>
-            <h2>Total</h2>
-            <p>/ person</p>
-          </div>
-          <div>${props.amounts.totalAmount}</div>
-        </div>
-      </div>
-    );
-}
+      <DisplayAmountsField componentName="Total" per="/ person">
+        {props.amounts.totalAmount}
+      </DisplayAmountsField>
+    </div>
+  );
+};
 
 export default DisplayAmounts;
