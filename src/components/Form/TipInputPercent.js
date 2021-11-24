@@ -10,7 +10,7 @@ return(
           onClick={props.onClick}
           role="radio" 
           aria-checked={props.checked}
-          tabindex="0"
+          tabIndex="0"
         >
         {props.children}</li>
 );

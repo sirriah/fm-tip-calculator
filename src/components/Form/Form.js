@@ -1,30 +1,54 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 
 import classes from "./Form.module.css";
 import TipInputs from "./TipInputs";
-import DisplayAmounts from "./DisplayAmouns";
+import DisplayAmounts from "./DisplayAmounts";
 import ResetForm from "./ResetForm";
 
 const Form = () => {
-  const [tipAmouts, setTipAmounts] = useState({});
+  const [billPrice, setBillPrice] = useState(0);
+  const [numberOfPeople, setNumberOfPeople] = useState(0);
+  const [customTip, setCustomTip] = useState(0);
+  const [percentageTip, setPercentageTip] = useState(0);
+  const [tipAmouts, setTipAmounts] = useState({"tipAmount" : 0, "totalAmount" : 0});
 
-
-  const insertValuesHandler = (tipAmountValue, totalAmountValue) => {
-    setTipAmounts({'tipAmount': tipAmountValue, 'totalAmount': totalAmountValue});
+  const resetButtonChangeHandler = () => {
+    setBillPrice(0);
+    setNumberOfPeople(0);
+    setCustomTip(0);
+    setPercentageTip(0);
+    setTipAmounts({"tipAmount" : 0, "totalAmount" : 0});
   }
-
  
+  useEffect(() => {
+    if (+numberOfPeople <= 0) {
+      setTipAmounts({"tipAmount" : 0, "totalAmount" : 0});
+    } else {
+      setTipAmounts({
+        "tipAmount" : ((+billPrice * (+percentageTip / 100)) / +numberOfPeople),
+        "totalAmount" : (+billPrice + +billPrice * (+percentageTip / 100)) / +numberOfPeople
+      }
+      );
+    }
+  }, [billPrice, percentageTip, numberOfPeople]);
 
-  
   return (
     <div className={classes.form}>
-      <TipInputs onInsertValues={insertValuesHandler} />
-    <div>
-    <DisplayAmounts amounts={tipAmouts} />
+      <TipInputs 
+        onSetBillPrice={setBillPrice}
+        onSetNumberOfPeople={setNumberOfPeople}
+        onSetCustomTip={setCustomTip}
+        onSetPercentageTip={setPercentageTip}
+        values={{'billPrice': billPrice, 
+                 'numberOfPeople': numberOfPeople, 
+                 'customTip': customTip, 
+                 'percentageTip': percentageTip}}
+        />
+      <div>
+        <DisplayAmounts amounts={tipAmouts} />
 
-    <ResetForm />
-    </div>
+        <ResetForm onClick={resetButtonChangeHandler}/>
+      </div>
     </div>
   );
 };

@@ -1,43 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import TipInputPercent from "./TipInputPercent";
 
 import classes from "./TipInputs.module.css";
 
-const InputTip = (props) => {
-  const [billPrice, setBillPrice] = useState(0);
-  const [numberOfPeople, setNumberOfPeople] = useState(0);
-  const [customTip, setCustomTip] = useState(0);
-  const [percentageTip, setPercentageTip] = useState(0);
+const TipInputs = (props) => {
+  
 
   const billPriceChangeHandler = (event) => {
-    setBillPrice(event.target.value);
+    props.onSetBillPrice(event.target.value);
   };
 
   const numberPeopleChangeHandler = (event) => {
-    setNumberOfPeople(event.target.value);
+    props.onSetNumberOfPeople(event.target.value);
   };
 
   const customTipChangeHandler = (event) => {
-    setCustomTip(event.target.value);
-    setPercentageTip(event.target.value);
+    props.onSetCustomTip(event.target.value);
+    props.onSetPercentageTip(event.target.value);
   };
 
   const percentageTipChangeHandler = (event) => {
-      setPercentageTip(event.target.value);
+      props.onSetPercentageTip(event.target.value);
   };
 
-  useEffect(() => {
-    if (+numberOfPeople <= 0) {
-      props.onInsertValues(0, 0);
-    } else {
-      props.onInsertValues(
-        (+billPrice * (+percentageTip / 100)) / +numberOfPeople,
-        (+billPrice + +billPrice * (+percentageTip / 100)) / +numberOfPeople
-      );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [billPrice, percentageTip, numberOfPeople]);
+  
 
   return (
     <div className={classes.tipInputs}>
@@ -46,7 +33,7 @@ const InputTip = (props) => {
         type="number"
         id="bill"
         onChange={billPriceChangeHandler}
-        value={billPrice}
+        value={props.values.billPrice}
       />
 
       <label htmlFor="customTip">Select Tip %</label>
@@ -54,7 +41,7 @@ const InputTip = (props) => {
       <ul className="calculator__buttons-grid" role="radiogroup">
         <TipInputPercent
           value="5"
-          checked={+percentageTip === 5}
+          checked={+props.values.percentageTip === 5}
           onClick={percentageTipChangeHandler}
         >
           5%
@@ -62,7 +49,7 @@ const InputTip = (props) => {
 
         <TipInputPercent
           value="10"
-          checked={+percentageTip === 10}
+          checked={+props.values.percentageTip === 10}
           onClick={percentageTipChangeHandler}
         >
           10%
@@ -70,7 +57,7 @@ const InputTip = (props) => {
 
         <TipInputPercent
           value="15"
-          checked={+percentageTip === 15}
+          checked={+props.values.percentageTip === 15}
           onClick={percentageTipChangeHandler}
         >
           15%
@@ -78,7 +65,7 @@ const InputTip = (props) => {
 
         <TipInputPercent
           value="25"
-          checked={+percentageTip === 25}
+          checked={+props.values.percentageTip === 25}
           onClick={percentageTipChangeHandler}
         >
           25%
@@ -86,16 +73,16 @@ const InputTip = (props) => {
 
         <TipInputPercent
           value="50"
-          checked={+percentageTip === 50}
+          checked={+props.values.percentageTip === 50}
           onClick={percentageTipChangeHandler}
         >
           50%
         </TipInputPercent>
 
         <TipInputPercent
-          value={customTip}
+          value={props.values.customTip}
           id="percentageCustom"
-          checked={percentageTip === "custom"}
+          checked={props.values.percentageTip === "custom"}
           onClick={percentageTipChangeHandler}
         >
           <input
@@ -103,7 +90,7 @@ const InputTip = (props) => {
             placeholder="custom"
             id="customTip"
             onChange={customTipChangeHandler}
-            value={customTip}
+            value={props.values.customTip}
           />
         </TipInputPercent>
       </ul>
@@ -113,10 +100,10 @@ const InputTip = (props) => {
         type="number"
         id="numberOfPeople"
         onChange={numberPeopleChangeHandler}
-        value={numberOfPeople}
+        value={props.values.numberOfPeople}
       />
     </div>
   );
 };
 
-export default InputTip;
+export default TipInputs;
