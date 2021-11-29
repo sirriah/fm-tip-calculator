@@ -1,0 +1,22 @@
+.tipInputPercent{
+    border: none;
+    background-color: #00474B;
+    color: white;
+    padding: 0.375rem 0.875rem;
+    font-family: 'Space Mono';
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.tipInputPercent:hover{
+    background: #9FE8DF;
+    color: #00474B;
+}
+
+.tipInputPercent[aria-checked="true"] {
+    background: #26C2AE;
+    color: #00474B;
+}

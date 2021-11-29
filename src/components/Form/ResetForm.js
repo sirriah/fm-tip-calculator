@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './ResetForm.module.css';
 
 const ResetForm = (props) => {
 return(
-    <button className="reset" onClick={props.onClick}>Reset</button>
+    <button className={classes.resetButton} onClick={props.onClick}>Reset</button>
 );
 }
 

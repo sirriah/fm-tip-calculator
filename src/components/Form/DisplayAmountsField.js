@@ -1,13 +1,14 @@
 import React from 'react';
+import classes from './DisplayAmountsField.module.css';
 
 const DisplayAmountsField = (props) => {
     return(
-        <div className="tip-amount">
+        <div className={classes.amountField}>
           <div>
             <h2>{props.componentName}</h2>
             <p>{props.per}</p>
           </div>
-          <div>${props.children}</div>
+          <div><p className={classes.amount}>${props.children}</p></div>
         </div>
     );
 }

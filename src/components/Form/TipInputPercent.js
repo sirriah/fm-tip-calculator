@@ -1,8 +1,10 @@
 import React from 'react';
 
+import classes from './TipInputPercent.module.css';
+
 const TipInputPercent = (props) => {
 return(
-    <li
+     <li
           value={props.value}
           name="percent"
           id={`percentage${props.value}`}
@@ -11,8 +13,10 @@ return(
           role="radio" 
           aria-checked={props.checked}
           tabIndex="0"
+          className={`${classes.tipInputPercent} ${props.className}`}
         >
         {props.children}</li>
+
 );
 }
 
