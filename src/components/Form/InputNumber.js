@@ -5,7 +5,7 @@ import classes from "./InputNumber.module.css";
 /* I commented the type=number, because the fiedl is validate in the browser in spite of the <form noValidate> */
 const InputNumber = (props) => {
   return (
-    <div>
+    <div class={props.classWrapper}>
       <label htmlFor={props.id}>{props.children}</label>
       <input
         //type="number"

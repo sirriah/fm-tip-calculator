@@ -50,15 +50,30 @@
   margin-bottom: 1rem;
 }
 
+.dolar {
+  position: relative;
+}
 
-.dolar::before{
-   content: url("./../../images/icon-dollar.svg");
- background-color: blue;
+.dolar::before {
+  content: url("./../../images/icon-dollar.svg");
   width: 1rem;
   height: 1rem;
-  
-  }
-  
-  .people::before{
-    content: url("./../../images/icon-person.svg");
-  }
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 100;
+}
+
+.people {
+  position: relative;
+}
+
+.people::before {
+  content: url("./../../images/icon-person.svg");
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 100;
+}

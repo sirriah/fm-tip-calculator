@@ -58,7 +58,7 @@ const TipInputs = (props) => {
         value={props.values.billPrice}
         error={billPriceError}
         onChange={billPriceChangeHandler}
-        className={classes.dolar}
+        classWrapper={classes.dolar}
       >
         Bill
       </InputNumber>
@@ -101,7 +101,8 @@ const TipInputs = (props) => {
         value={props.values.numberOfPeople}
         error={numberOfPeopleError}
         onChange={numberPeopleChangeHandler}
-        className={`${classes.lastMargin} ${classes.people}`}
+        className={classes.lastMargin}
+        classWrapper={classes.people}
       >
         Number of People
       </InputNumber>
