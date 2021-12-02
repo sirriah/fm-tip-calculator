@@ -49,3 +49,16 @@
 .lastMargin {
   margin-bottom: 1rem;
 }
+
+
+.dolar::before{
+   content: url("./../../images/icon-dollar.svg");
+ background-color: blue;
+  width: 1rem;
+  height: 1rem;
+  
+  }
+  
+  .people::before{
+    content: url("./../../images/icon-person.svg");
+  }
