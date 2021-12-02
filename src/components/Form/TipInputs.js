@@ -47,7 +47,7 @@ const TipInputs = (props) => {
   };
 
   const percentageTipChangeHandler = (event) => {
-    props.onSetPercentageTip(event.target.value);
+    props.onSetPercentageTip(event.target.getAttribute("data-value"));
   };
 
   /* accessibility = press the input percents with spacebar */
