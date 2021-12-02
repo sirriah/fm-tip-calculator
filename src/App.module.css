@@ -1,7 +1,19 @@
+.srOnly{
+  color: transparent;
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
 .heading1 {
   text-transform: uppercase;
   letter-spacing: 0.8rem;
   font-size: 1.5rem;
+  font-weight: bold;
   color: #3d6666;
   display: block;
   max-width: 7rem;
@@ -9,3 +21,12 @@
   margin-bottom: 2.3rem;
   margin-inline: auto;
 }
+
+@media only screen and (min-width: 640px){
+  .heading1{
+    margin-top: 10.1875rem;
+    margin-bottom: 5.4375rem;
+  }
+}
+  
+

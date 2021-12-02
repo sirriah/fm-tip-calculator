@@ -9,12 +9,13 @@ The headline is designed to be broken. I used the aria-label and aria-hidden for
 function App() {
   return (
     <div className={classes.App}>
-      <div aria-label="splitter">
-        <h1 className={classes.heading1} aria-hidden="true">
+      <div>
+        <h1 className={classes.srOnly}>Splitter</h1>
+        <p className={classes.heading1} aria-hidden="true">
           Spli
           <br />
           tter
-        </h1>
+        </p>
       </div>
       <Card className="calculator">
         <Form />

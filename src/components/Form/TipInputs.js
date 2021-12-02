@@ -85,14 +85,6 @@ const TipInputs = (props) => {
           </TipInputPercent>
         ))}
 
-        <TipInputPercent
-          value={props.values.customTip}
-          id="percentageCustom"
-          checked={props.values.percentageTip === "custom"}
-          onClick={percentageTipChangeHandler}
-          className={classes.tipInputCustomLi}
-          onKeyPress={onKeyPressHandler}
-        >
           <InputNumber
             id="customTip"
             value={props.values.customTip}
@@ -101,7 +93,7 @@ const TipInputs = (props) => {
             className={classes.tipInputCustomNumber}
             placeholder="custom"
           ></InputNumber>
-        </TipInputPercent>
+
       </ul>
 
       <InputNumber
