@@ -52,10 +52,10 @@ const TipInputs = (props) => {
 
   /* accessibility = press the input percents with spacebar */
   const onKeyPressHandler = (event) => {
-    if(event.key === " "){
+    if (event.key === " ") {
       props.onSetPercentageTip(event.target.value);
     }
-  }
+  };
 
   return (
     <div className={classes.tipInputs}>
@@ -71,7 +71,7 @@ const TipInputs = (props) => {
 
       <label htmlFor="customTip">Select Tip %</label>
 
-      <div className={classes.tipInputPercentGrid} role="radiogroup">
+      <ul className={classes.tipInputPercentGrid} role="radiogroup">
         {percents.map((item) => (
           <TipInputPercent
             value={item}
@@ -84,8 +84,8 @@ const TipInputs = (props) => {
             {item}%
           </TipInputPercent>
         ))}
-<li>
-<InputNumber
+        <li>
+          <InputNumber
             id="customTip"
             value={props.values.customTip}
             error={customTipError}
@@ -93,10 +93,8 @@ const TipInputs = (props) => {
             className={classes.tipInputCustomNumber}
             placeholder="custom"
           ></InputNumber>
-</li>
-          
-
-      </div>
+        </li>
+      </ul>
 
       <InputNumber
         id="numberOfPeople"
