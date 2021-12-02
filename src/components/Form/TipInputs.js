@@ -71,7 +71,7 @@ const TipInputs = (props) => {
 
       <label htmlFor="customTip">Select Tip %</label>
 
-      <ul className={classes.tipInputPercentGrid} role="radiogroup">
+      <div className={classes.tipInputPercentGrid} role="radiogroup">
         {percents.map((item) => (
           <TipInputPercent
             value={item}
@@ -94,7 +94,7 @@ const TipInputs = (props) => {
             placeholder="custom"
           ></InputNumber>
 
-      </ul>
+      </div>
 
       <InputNumber
         id="numberOfPeople"

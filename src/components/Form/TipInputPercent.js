@@ -13,11 +13,11 @@ import classes from "./TipInputPercent.module.css";
 const TipInputPercent = (props) => {
   return (
     <li
-      value={props.value}
       id={`percentage${props.value}`}
       checked={props.checked}
       onClick={props.onClick}
       role="radio"
+      data-value={props.value}
       aria-checked={props.checked}
       tabIndex="0"
       className={`${classes.tipInputPercent} ${props.className}`}
