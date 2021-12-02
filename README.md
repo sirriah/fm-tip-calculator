@@ -59,6 +59,8 @@ I used the Create React app and CSS Modules.
 
 What I have leart in CSS is, that for the hover on input is better to use the outline than the border, because border cause "jumping" of the rest of the content.
 
+Accessibility is the really importnat part for me, but I am still learning :)
+
 ### Continued development
 
 I want to finished the React course and then I want to try next challenge from Fronted Mentor - the memory game.

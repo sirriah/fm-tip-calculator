@@ -14,7 +14,7 @@
   line-height: 36px;
   text-align: right;
 
-  color: #a5bebf;
+  color: #00474B;
 
   width: 100%;
 }
@@ -41,3 +41,6 @@ input[type="number"] {
   outline: 2px solid #e17457 !important;
 }
 
+.tipInputNumber:focus, .tipInputNumber:focus-visible, .tipInputNumber:active{
+  outline: 2px solid black;
+}

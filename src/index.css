@@ -11,3 +11,7 @@ body {
   color: #5e7a7d;
   font-family: "Space Mono", Courier, monospace;
 }
+
+:focus, :focus-visible{
+  outline: 2px dashed black;
+}

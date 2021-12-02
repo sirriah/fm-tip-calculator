@@ -7,6 +7,9 @@ import classes from "./TipInputPercent.module.css";
   because this is easier to style.
 */
 
+
+
+
 const TipInputPercent = (props) => {
   return (
     <li
@@ -19,6 +22,7 @@ const TipInputPercent = (props) => {
       aria-checked={props.checked}
       tabIndex="0"
       className={`${classes.tipInputPercent} ${props.className}`}
+      onKeyPress={props.onKeyPress}
     >
       {props.children}
     </li>

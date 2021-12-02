@@ -15,7 +15,6 @@ const TipInputs = (props) => {
 
   // check if the inserted value is a number or if it is greater than 0
   const billPriceChangeHandler = (event) => {
-    console.log(+event.target.value);
     if (isNaN(+event.target.value) || +event.target.value < 0) {
       setBillPriceError(true);
       props.onSetBillPrice(event.target.value);
@@ -51,6 +50,13 @@ const TipInputs = (props) => {
     props.onSetPercentageTip(event.target.value);
   };
 
+  /* accessibility = press the input percents with spacebar */
+  const onKeyPressHandler = (event) => {
+    if(event.key === " "){
+      props.onSetPercentageTip(event.target.value);
+    }
+  }
+
   return (
     <div className={classes.tipInputs}>
       <InputNumber
@@ -71,6 +77,7 @@ const TipInputs = (props) => {
             value={item}
             checked={+props.values.percentageTip === item}
             onClick={percentageTipChangeHandler}
+            onKeyPress={onKeyPressHandler}
             className=""
             key={item}
           >
@@ -84,6 +91,7 @@ const TipInputs = (props) => {
           checked={props.values.percentageTip === "custom"}
           onClick={percentageTipChangeHandler}
           className={classes.tipInputCustomLi}
+          onKeyPress={onKeyPressHandler}
         >
           <InputNumber
             id="customTip"
