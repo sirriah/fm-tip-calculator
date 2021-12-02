@@ -84,8 +84,8 @@ const TipInputs = (props) => {
             {item}%
           </TipInputPercent>
         ))}
-
-          <InputNumber
+<li>
+<InputNumber
             id="customTip"
             value={props.values.customTip}
             error={customTipError}
@@ -93,6 +93,8 @@ const TipInputs = (props) => {
             className={classes.tipInputCustomNumber}
             placeholder="custom"
           ></InputNumber>
+</li>
+          
 
       </div>
 
