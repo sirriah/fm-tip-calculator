@@ -1,83 +1,51 @@
-.tipInputs input{
-  /* border: 2px solid transparent; */
+.tipInputs input {
+  /* outline is better than border, because border cause "jumping" of the rest of a content */
+  outline: 2px solid transparent;
+  transition: 200ms all ease-in-out;
 }
 
 .tipInputs input:hover {
-  outline: 2px solid #26C2AE;
+  outline: 2px solid #26c2ae;
 }
 
-.tipInputs label{
+.tipInputs label {
   pointer-events: none;
 }
 
 .tipInputPercentGrid {
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   list-style-type: none;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
 }
 
+@media only screen and (min-width: 640px) {
+  .tipInputPercentGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .tipInputPercentGrid li input {
-    width: 100%;
+  width: 100%;
 }
 
-.tipInputNumber {
-  background: #f3f9fa;
-  border-radius: 5px;
-  border: none;
-  margin-top: 0.5rem;
-  margin-bottom: 2.5rem;
-  padding-block: 0.375rem;
-  padding-right: 1rem;
-
-  font-family: Space Mono;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 36px;
-  /* identical to box height */
-
-  text-align: right;
-
-  color: #a5bebf;
-
-  min-width: 100%;
-
-}
-
-
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.tipInputCustomLi{
+.tipInputCustomLi {
   padding: 0;
   background-color: transparent;
 }
 
-.tipInputCustomNumber{
-    margin: 0;
-    color: #547878;
-    /* padding-block: 4px; */
-
+.tipInputCustomNumber {
+  margin: 0;
+  color: #547878;
 }
 
-.error{
-  outline: 2px solid #E17457!important;
+.error {
+  outline: 2px solid #e17457 !important;
 }
 
-.lastMargin{
+.lastMargin {
   margin-bottom: 1rem;
 }

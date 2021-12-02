@@ -2,6 +2,9 @@ import React from "react";
 
 import DisplayAmountsField from "./DisplayAmountsField";
 
+/* 
+  This component is a wrapper of two another components with the results from the form
+*/
 const DisplayAmounts = (props) => {
   return (
     <div className="calculator__results">

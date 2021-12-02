@@ -1,15 +1,24 @@
-.resetButton{
-    border: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #00474B;
-    text-transform: uppercase;
-    background: #26C2AE;
-    border-radius: 5px;
-    padding-block: 0.7rem;
-    cursor: pointer;
+.resetButton {
+  border: none;
+  font-family: "Space Mono", Courier, monospace;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #00474b;
+  text-transform: uppercase;
+  background: #26c2ae;
+  border-radius: 5px;
+  padding-block: 0.7rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: 200ms all ease-in-out;
 }
 
-.resetButton:hover{
-    background-color: #9FE8DF;
+@media only screen and (min-width: 640px) {
+  .resetButton {
+    margin-top: unset;
+  }
+}
+
+.resetButton:hover {
+  background-color: #9fe8df;
 }

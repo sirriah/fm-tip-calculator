@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
 import TipInputPercent from "./TipInputPercent";
+import InputNumber from "./InputNumber";
 
 import classes from "./TipInputs.module.css";
 
 const TipInputs = (props) => {
-
   // eslint-disable-next-line no-unused-vars
   const [percents, setPercents] = useState([5, 10, 15, 25, 50]);
-  
+
   const [billPriceError, setBillPriceError] = useState(false);
   const [customTipError, setCustomTipError] = useState(false);
   const [numberOfPeopleError, setNumberOfPeopleError] = useState(false);
- 
+
+  // check if the inserted value is a number or if it is greater than 0
   const billPriceChangeHandler = (event) => {
-       if(isNaN(+event.target.value) || +event.target.value < 0){
+    console.log(+event.target.value);
+    if (isNaN(+event.target.value) || +event.target.value < 0) {
       setBillPriceError(true);
       props.onSetBillPrice(event.target.value);
     } else {
@@ -24,7 +26,7 @@ const TipInputs = (props) => {
   };
 
   const numberPeopleChangeHandler = (event) => {
-    if(isNaN(+event.target.value) || +event.target.value < 0){
+    if (isNaN(+event.target.value) || +event.target.value < 0) {
       setNumberOfPeopleError(true);
       props.onSetNumberOfPeople(event.target.value);
     } else {
@@ -34,53 +36,47 @@ const TipInputs = (props) => {
   };
 
   const customTipChangeHandler = (event) => {
-    if(isNaN(+event.target.value) || +event.target.value < 0){
+    if (isNaN(+event.target.value) || +event.target.value < 0) {
       setCustomTipError(true);
       props.onSetCustomTip(event.target.value);
-    props.onSetPercentageTip(event.target.value);
+      props.onSetPercentageTip(event.target.value);
     } else {
       setCustomTipError(false);
       props.onSetCustomTip(event.target.value);
-    props.onSetPercentageTip(event.target.value);
+      props.onSetPercentageTip(event.target.value);
     }
   };
 
   const percentageTipChangeHandler = (event) => {
-      props.onSetPercentageTip(event.target.value);
+    props.onSetPercentageTip(event.target.value);
   };
-
-  
 
   return (
     <div className={classes.tipInputs}>
-      <label htmlFor="bill">Bill</label>
-      <input
-        type="number"
+      <InputNumber
         id="bill"
-        onChange={billPriceChangeHandler}
         value={props.values.billPrice}
-        className={`${classes.tipInputNumber} ${billPriceError ? classes.error : ""} `}
-        placeholder="0"
-        noValidate
-      />
+        error={billPriceError}
+        onChange={billPriceChangeHandler}
+        className={classes.dolar}
+      >
+        Bill
+      </InputNumber>
 
       <label htmlFor="customTip">Select Tip %</label>
 
       <ul className={classes.tipInputPercentGrid} role="radiogroup">
-
-
         {percents.map((item) => (
           <TipInputPercent
-          value={item}
-          checked={+props.values.percentageTip === {item}}
-          onClick={percentageTipChangeHandler}
-          className=""
-          key={item}
-        >
-          {item}%
-        </TipInputPercent>
+            value={item}
+            checked={+props.values.percentageTip === item}
+            onClick={percentageTipChangeHandler}
+            className=""
+            key={item}
+          >
+            {item}%
+          </TipInputPercent>
         ))}
-
 
         <TipInputPercent
           value={props.values.customTip}
@@ -89,28 +85,26 @@ const TipInputs = (props) => {
           onClick={percentageTipChangeHandler}
           className={classes.tipInputCustomLi}
         >
-          <input
-            type="number"
-            placeholder="custom"
+          <InputNumber
             id="customTip"
-            onChange={customTipChangeHandler}
             value={props.values.customTip}
-            className={`${classes.tipInputNumber} ${classes.tipInputCustomNumber} ${customTipError ? classes.error : ""} `}
-            noValidate
-          />
+            error={customTipError}
+            onChange={customTipChangeHandler}
+            className={classes.tipInputCustomNumber}
+            placeholder="custom"
+          ></InputNumber>
         </TipInputPercent>
       </ul>
 
-      <label htmlFor="numberOfPeople">Number of People</label>
-      <input
-        type="number"
+      <InputNumber
         id="numberOfPeople"
-        onChange={numberPeopleChangeHandler}
         value={props.values.numberOfPeople}
-        className={`${classes.tipInputNumber} ${classes.lastMargin} ${numberOfPeopleError ? classes.error : ""} `}
-        placeholder="0"
-        noValidate
-      />
+        error={numberOfPeopleError}
+        onChange={numberPeopleChangeHandler}
+        className={`${classes.lastMargin} ${classes.people}`}
+      >
+        Number of People
+      </InputNumber>
     </div>
   );
 };
