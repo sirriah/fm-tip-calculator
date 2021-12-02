@@ -14,7 +14,6 @@ const TipInputPercent = (props) => {
   return (
     <li
       value={props.value}
-      name="percent"
       id={`percentage${props.value}`}
       checked={props.checked}
       onClick={props.onClick}
