@@ -68,7 +68,7 @@ I want to finished the React course and then I want to try next challenge from F
 
 ### Useful resources
 
-- [Create React App](https://github.com/facebook/create-react-app) - s a comfortable environment for learning React, and is the best way to start building a new single-page application in React.
+- [Create React App](https://github.com/facebook/create-react-app) - a comfortable environment for learning React, and it is the best way to start building a new single-page application in React.
 - [Udemy course ReactJS](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) by Max Schwarzmüller
 
 
@@ -80,4 +80,4 @@ I want to finished the React course and then I want to try next challenge from F
 
 ## Acknowledgments
 
-I would like to thank to the James from Frontend Mentors Slack, that he push me to the right way :) 
+I would like to thank to James from Frontend Mentors Slack, that he push me to the right way :) 
